@@ -13,34 +13,40 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.addHeader("Content-Type","text/html"); //-->renderowanie textu na html
-        Integer a = MapToInt(req.getParameter("a"));
-        Integer b = MapToInt(req.getParameter("b"));
+
         String message = req.getParameter("message");
-        PrintWriter writer = resp.getWriter();writer.print("Result:");
+        PrintWriter writer = resp.getWriter();
+        writer.print("Result:");
         createMessage(message,writer);
         createForm(writer);
 
+        if(req.getParameter("a") !=null && req.getParameter("b")!=null && req.getParameter("operation")!=null)
+        handleCalculation(req, resp,  writer);
 
+
+    }
+
+    private void handleCalculation(HttpServletRequest req, HttpServletResponse resp,  PrintWriter writer) throws IOException {
+        Integer a = MapToInt(req.getParameter("a"));
+        Integer b = MapToInt(req.getParameter("b"));
         String operation=req.getParameter("operation");
-       if("+".equals(operation)){
-           writer.println(a+b);
-       }else if("-".equals(operation)){
-           writer.println(a-b);
-       }else if("*".equals(operation)){
-           writer.println(a*b);
-       }else if("/".equals(operation)){
-            if(b==0){
-                //resp.setStatus(302);
-                //resp.addHeader("Location","https://pl.wikipedia.org/wiki/Dzielenie");
-                //String contextPath = req.getContextPath();
+        if("+".equals(operation)){
+            writer.println(a+b);
+        }else if("-".equals(operation)){
+            writer.println(a-b);
+        }else if("*".equals(operation)){
+            writer.println(a*b);
+        }else if("/".equals(operation)){
+             if(b==0){
+                 //resp.setStatus(302);
+                 //resp.addHeader("Location","https://pl.wikipedia.org/wiki/Dzielenie");
+                 //String contextPath = req.getContextPath();
 
-                //resp.sendRedirect("https://pl.wikipedia.org/wiki/Dzielenie");
-                resp.sendRedirect(req.getContextPath()+req.getServletPath()+ "?message=Nie dziel przez zero");
-            }else{
-           writer.println((double) a/b);}
-       }
-
-
+                 //resp.sendRedirect("https://pl.wikipedia.org/wiki/Dzielenie");
+                 resp.sendRedirect(req.getContextPath()+req.getServletPath()+ "?message=Nie dziel przez zero");
+             }else{
+            writer.println((double) a/b);}
+        }
     }
 
     private void createMessage(String message, PrintWriter writer) {

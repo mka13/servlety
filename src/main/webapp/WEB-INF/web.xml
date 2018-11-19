@@ -9,12 +9,11 @@
     </servlet>
 
 
-
     <servlet-mapping>
 
         <servlet-name>HomeServlet</servlet-name>
 
-        <url-pattern>/hello-world</url-pattern>
+        <url-pattern>/hello-world,/</url-pattern>
 
     </servlet-mapping>
 
@@ -28,12 +27,144 @@
     </servlet>
 
 
-
     <servlet-mapping>
 
         <servlet-name>CalculatorServlet</servlet-name>
 
         <url-pattern>/Calculator</url-pattern>
+
+    </servlet-mapping>
+
+
+    <servlet>
+
+        <servlet-name>LinkiServlet</servlet-name>
+
+        <servlet-class>com.sda.servlets.links.LinkiServlet</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>LinkiServlet</servlet-name>
+
+        <url-pattern>/Links</url-pattern>
+
+    </servlet-mapping>
+
+
+    <servlet>
+
+        <servlet-name>UsersServlet</servlet-name>
+
+        <servlet-class>com.sda.servlets.users.UsersServlet</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>UsersServlet</servlet-name>
+
+        <url-pattern>/Users</url-pattern>
+
+    </servlet-mapping>
+
+    <servlet>
+
+        <servlet-name>UserServlet</servlet-name>
+
+        <servlet-class>com.sda.servlets.users.UserServlet</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>UserServlet</servlet-name>
+
+        <url-pattern>/Users/*</url-pattern>
+
+    </servlet-mapping>
+
+
+
+
+
+    <servlet>
+
+        <servlet-name>LinkServlet</servlet-name>
+
+        <servlet-class>com.sda.servlets.links.LinkServlet</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>LinkServlet</servlet-name>
+
+        <url-pattern>/Links/*</url-pattern>
+
+    </servlet-mapping>
+
+
+    <servlet>
+
+        <servlet-name>TestServlet</servlet-name>
+
+        <servlet-class>com.sda.servlets.TestServlet</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>TestServlet</servlet-name>
+
+        <url-pattern>/test</url-pattern>
+
+
+    </servlet-mapping>
+
+
+
+    <servlet>
+
+        <servlet-name>test</servlet-name>
+
+        <servlet-class>com.sda.servlets.testy.test</servlet-class>
+
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>test</servlet-name>
+
+        <url-pattern>/testy</url-pattern>
+
+
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+
+        <servlet-name>HelloServlet</servlet-name>
+
+        <jsp-file>hello.jsp</jsp-file>
+
+    </servlet>
+
+    <servlet-mapping>
+
+        <servlet-name>HelloServlet</servlet-name>
+
+        <url-pattern>/hello</url-pattern>
+
 
     </servlet-mapping>
 
